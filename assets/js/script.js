@@ -1,4 +1,4 @@
-fetch("https://v3.football.api-sports.io/fixtures?live=all", {
+fetch("https://v3.football.api-sports.io/fixtures/rounds?season=2019&league=61", {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "v3.football.api-sports.io",
@@ -7,11 +7,7 @@ fetch("https://v3.football.api-sports.io/fixtures?live=all", {
 })
 .then(response => {
 	console.log(response);
-    return response.json ()
 })
-.then(function (data){
-console.log (data)
-}) 
 .catch(err => {
 	console.log(err);
 });
