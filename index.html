@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Wine and Dine!</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
         integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="./assets/css/reset.css"> -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
@@ -23,13 +24,15 @@
             </ul>
             <nav>
                 <div class="nav-wrapper">
-                    <a href="#!" class="brand-logo">Name</a>
+                    <!-- temp title -->
+                    <a href="#!" class="brand-logo">Wine and Dine</a>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="sass.html">Standings</a></li>
-                        <li><a href="badges.html">Teams</a></li>
+                        <li><a href="sass.html">Recipes</a></li>
+                        <li><a href="badges.html">Ingredients</a></li>
+                        <li><a hred="">Pairings</a></li>
                         <!-- Dropdown Trigger -->
                         <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i
-                                    class="material-icons right">arrow_drop_down</i></a></li>
+                                    class="material-icons right">arrow_drop_down</i></a></li>                    
                     </ul>
                 </div>
             </nav>
@@ -48,36 +51,43 @@
                         </form>
                     </div>
 
+                    <!-- standings table -->
                     <table>
                         <thead>
+                            <h1>Recipes</h1>
                             <tr>
-                                <th>Team Name</th>
-                                <th>Wins</th>
-                                <th>Loss</th>
+                                <th>Ingredient</th>
+                                <th>Amount</th>
+                                <th>Substitute</th>
+                                <th>Substitute Amount</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td>Alvin</td>
-                                <td>Eclair</td>
-                                <td>$0.87</td>
+                            <tr id="step1">
+                                <td class="ingredient">Ingredient 1</td>
+                                <td class="amount">Amount 1</td>
+                                <td class="substitute">Substitute 1</td>
+                                <td class="substitute_amount">Substitute Amount 1</td>
                             </tr>
-                            <tr>
-                                <td>Alan</td>
-                                <td>Jellybean</td>
-                                <td>$3.76</td>
+                            <tr id="step2">
+                                <td class="ingredient">Ingredient 2</td>
+                                <td class="amount">Amount 2</td>
+                                <td class="substitute">Substitute 2</td>
+                                <td class="substitute_amount">Substitute Amount 2</td>
                             </tr>
-                            <tr>
-                                <td>Jonathan</td>
-                                <td>Lollipop</td>
-                                <td>$7.00</td>
+                            <tr id="step3">
+                                <td class="ingredient">Ingredient 3</td>
+                                <td class="amount">Amount 3</td>
+                                <td class="substitute">Substitute 3</td>
+                                <td class="substitute_amount">Substitute Amount 3</td>
                             </tr>
                         </tbody>
                     </table>
-                    <div class="team-info">
-                        <h2>team name</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam ut, fugiat soluta sequi nisi
+
+                    <div class="recipe_info">
+                        <h2 id="recipe_name_header">Recipe Name</h2>
+                        <p id="food_paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam ut, fugiat soluta sequi nisi
                             excepturi et possimus natus, maiores eos harum impedit obcaecati omnis vel dolores quisquam
                             voluptatibus ad. Harum?</p>
                     </div>
@@ -90,23 +100,20 @@
     <aside class="container">
         <div class="row">
             <div class="col s6">6-columns (one-half)
-
-
-                <h3>favorite teams/recent searches</h3>
-                <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed veritatis omnis libero numquam
+                <h3>Recent searches</h3>
+                <p id="recent_searches"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed veritatis omnis libero numquam
                     repellendus, ex corporis veniam exercitationem quam porro animi nisi soluta, totam laudantium. Natus
                     qui voluptatibus architecto. Voluptatibus?</p>
             </div>
-            <!-- videos api -->
+            
+            <!-- might need to change this -->
             <div class="col s6">6-columns (one-half)
-                <iframe src="https://www.scorebat.com/embed/" frameborder="0" width="600" height="760" allowfullscreen
-                    allow='autoplay; fullscreen' style="width:100%;height:760px;overflow:hidden;display:block;"
-                    class="_scorebatEmbeddedPlayer_"></iframe>
-                <script>(function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = 'https://www.scorebat.com/embed/embed.js?v=arrv'; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'scorebat-jssdk'));</script>
+                <h3>Checkout these Recipes!</h3>
             </div>
     </aside>
-    <!-- second api link  -->
-    <!-- https://www.api-football.com/ -->
+    <footer>
+        <h4>Made for Foodies!</h4>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
         integrity="sha512-NiWqa2rceHnN3Z5j6mSAvbwwg3tiwVNxiAQaaSMSXnRRDh5C2mk/+sKQRw8qjV1vN4nf8iK2a0b048PnHbyx+Q=="
