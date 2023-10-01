@@ -15,7 +15,7 @@
 
 <body>
     <div class="container test1">
-        <header> <!-- header with dropdown-->
+        <header>
             <ul id="dropdown1" class="dropdown-content">
                 <li><a href="#!">one</a></li>
                 <li><a href="#!">two</a></li>
@@ -24,7 +24,6 @@
             </ul>
             <nav>
                 <div class="nav-wrapper">
-                    <!-- temp title -->
                     <a href="#!" class="brand-logo">Wine and Dine</a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="sass.html">Recipes</a></li>
@@ -32,7 +31,7 @@
                         <li><a hred="">Pairings</a></li>
                         <!-- Dropdown Trigger -->
                         <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i
-                                    class="material-icons right">arrow_drop_down</i></a></li>                    
+                                    class="material-icons right">arrow_drop_down</i></a></li>
                     </ul>
                 </div>
             </nav>
@@ -44,14 +43,13 @@
                     <div class="nav-wrapper">
                         <form class="form-search">
                             <div class="input-field search-bar">
-                                <input id="search" type="search" required>
+                                <input type="search" placeholder="Search for a recipe here" required>
                                 <label class="label-icon" for="search"><i class="material-icons">search</i></label>
 
                             </div>
                         </form>
                     </div>
 
-                    <!-- standings table -->
                     <table>
                         <thead>
                             <h1>Recipes</h1>
@@ -63,7 +61,7 @@
                             </tr>
                         </thead>
 
-                        <tbody>
+                        <tbody id="recipes-table">
                             <tr id="step1">
                                 <td class="ingredient">Ingredient 1</td>
                                 <td class="amount">Amount 1</td>
@@ -87,32 +85,37 @@
 
                     <div class="recipe_info">
                         <h2 id="recipe_name_header">Recipe Name</h2>
-                        <p id="food_paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam ut, fugiat soluta sequi nisi
+                        <p id="food_paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam ut,
+                            fugiat soluta sequi nisi
                             excepturi et possimus natus, maiores eos harum impedit obcaecati omnis vel dolores quisquam
                             voluptatibus ad. Harum?</p>
                     </div>
                 </section>
             </div>
-
-
         </main>
     </div>
+
     <aside class="container">
         <div class="row">
-            <div class="col s6">6-columns (one-half)
-                <h3>Recent searches</h3>
-                <p id="recent_searches"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed veritatis omnis libero numquam
-                    repellendus, ex corporis veniam exercitationem quam porro animi nisi soluta, totam laudantium. Natus
-                    qui voluptatibus architecto. Voluptatibus?</p>
+            <div>
+                <form class="form-search">
+                    <div class="input-field search-bar">
+                        <input id="food-input" type="search" placeholder="Wine pairing" required>
+                        <label id="wine-button" class="label-icon" for="search"><i
+                                class="material-icons">search</i></label>
+                        <p>Insert a type of food to search for a pairing wine here</p>
+                    </div>
+                </form>
             </div>
-            
-            <!-- might need to change this -->
-            <div class="col s6">6-columns (one-half)
-                <h3>Checkout these Recipes!</h3>
+            <div class="winelist">
+                <h2>Wine List</h2>
+                <ul id="wine-ul">
+                </ul>
             </div>
     </aside>
+
     <footer>
-        <h4>Made for Foodies!</h4>
+        <p>Made for Foodies!</p>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
