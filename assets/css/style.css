@@ -46,7 +46,7 @@
   
    .winelist p {
     font-weight: bold; /
-    white-space: pre-line; 
+    white-space: ;: pre-line; 
   }
   
   .winelist p:nth-of-type(1), 
