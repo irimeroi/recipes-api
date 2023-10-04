@@ -1,5 +1,4 @@
 //recipes api: edamam
-
 var apiURL = 'https://developer.edamam.com/edamam-docs-recipe-api';
 var apiKey = '46fa39f9b1266fd90b073f321a5e0b78';
 var apiID = 'd71c5c9b'
@@ -29,11 +28,15 @@ function displayRecipe(data) {
         var span = document.createElement('span');
         span.classList.add('card-title', 'black-text');
         span.textContent = data.hits[j].recipe.label;
+        var recipeInfo = document.createElement('span');
+        recipeInfo.classList.add('card-title', 'black-text');
+        recipeInfo.textContent = data.hits[j].recipe.dietLabels[0];
         var cardContent = document.createElement('div');
         cardContent.classList.add('card-content');
         cardContent.textContent = `Cuisine type: ${data.hits[j].recipe.cuisineType[0]}`;
         var paragraph = document.createElement('p');
         cardContent.append(paragraph);
+        cardContent.append(recipeInfo);
         paragraph.textContent = `Calories: ${Math.round(data.hits[j].recipe.calories)}`;
         var cardAction = document.createElement('div');
         cardAction.classList.add('card-action');
