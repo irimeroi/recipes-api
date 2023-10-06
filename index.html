@@ -16,96 +16,30 @@
 <body>
     <div class="container test1">
         <header>
-            <ul id="dropdown1" class="dropdown-content">
-                <li><a href="#!">one</a></li>
-                <li><a href="#!">two</a></li>
-                <li class="divider"></li>
-                <li><a href="#!">three</a></li>
-            </ul>
             <nav>
                 <div class="nav-wrapper">
                     <a href="#!" class="brand-logo">Wine and Dine</a>
-                    <ul class="right hide-on-med-and-down">
-                        <li><a href="sass.html">Recipes</a></li>
-                        <li><a href="badges.html">Ingredients</a></li>
-                        <li><a hred="">Pairings</a></li>
-                        <!-- Dropdown Trigger -->
-                        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i
-                                    class="material-icons right">arrow_drop_down</i></a></li>
-                    </ul>
+                    <form class="form-search recipe-search right hide-on-med-and-down">
+                        <div class="input-field search-bar">
+                            <label id="recipe-button" class="label-icon" for="search"><i
+                                    class="material-icons">search</i></label>
+                            <input id="recipe-input" type="search" placeholder="Search for a recipe here" required>
+                        </div>
+                    </form>
                 </div>
             </nav>
-
         </header>
+
         <main>
             <div>
                 <section>
-                    <div class="nav-wrapper">
-                        <form class="form-search">
-                            <div class="input-field search-bar">
-                                <label id="recipe-button" class="label-icon" for="search"><i
-                                        class="material-icons">search</i></label>
-                                <input id="recipe-input" type="search" placeholder="Search for a recipe here" required>
-                                <!-- <label class="label-icon" for="search"><i class="material-icons">search</i></label> -->
-
-                            </div>
-                        </form>
-                    </div>
-
                     <div class="card-container"></div>
-
-                    <!-- <table>
-                        <thead>
-                            <h1>Recipes</h1>
-                            <tr>
-                                <th>Ingredient</th>
-                                <th>Recipe</th>
-                                <th>Wine Pairing</th>
-                                <th>Substitute Amount</th>
-                            </tr>
-                        </thead>
-
-                        <tbody id="recipes-table">
-                            <tr id="step1">
-                                <td class="ingredient">Ingredient 1</td>
-                                <td class="recipe">Recipe 1</td>
-                                <td class="winePairing">Wine Pairing</td>
-                                <td class="substitute_amount">Substitute Amount 1</td>
-                            </tr>
-                            <tr id="step2">
-                                <td class="ingredient">Ingredient 2</td>
-                                <td class="amount">Amount 2</td>
-                                <td class="substitute">Substitute 2</td>
-                                 <td class="substitute_amount">Substitute Amount 2</td>
-                            </tr>
-                            <tr id="step3">
-                                <td class="ingredient">Ingredient 3</td>
-                                <td class="amount">Amount 3</td>
-                                <td class="substitute">Substitute 3</td>
-                                <td class="substitute_amount">Substitute Amount 3</td>
-                            </tr>
-                        </tbody>
-                    </table> -->
-
-
                 </section>
             </div>
         </main>
     </div>
 
     <aside class="container">
-        <div class="row">
-            <div class="nav-wrapper">
-                <form class="form-search">
-                    <div class="input-field search-bar">
-                        <label id="wine-button" class="label-icon" for="search"><i
-                                class="material-icons">search</i></label>
-                        <input id="food-input" type="search" placeholder="Wine pairing" required>
-                        <p>Insert a type of food to search for a pairing wine here</p>
-                    </div>
-                </form>
-            </div>
-        </div>
         <div class="winelist">
             <h2>Wine List</h2>
             <ul id="wine-ul">
@@ -116,7 +50,6 @@
     <aside>
         <h3>Recently Dined:</h3>
         <section id="show-history">
-            <!-- <placeholder>My last good meal</placeholder> -->
         </section>
     </aside>
 
