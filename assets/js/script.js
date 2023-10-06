@@ -1,5 +1,4 @@
 //recipes api: edamam
-
 var apiURL = 'https://developer.edamam.com/edamam-docs-recipe-api';
 var apiKey = '508d7bf995bde1dcad83d2168ac464c4';
 var apiID = '52921d28'
@@ -11,6 +10,7 @@ const historyEl = document.getElementById("show-history");
 //and prevents us from having thousands of options at once
 function displayRecipe(data) {
     var length;
+    document.querySelector('.card-container').innerHTML = '';
     if (data.hits.length < 20) {
         length = data.hits.length;
     } else {
@@ -18,9 +18,7 @@ function displayRecipe(data) {
     }
     for (var j = 0; j < length; j++) {
         var row = document.createElement('div');
-        
         var col = document.createElement('div');
-        
         var card = document.createElement('div');
         card.classList.add('card', 'medium');
         var cardImage = document.createElement('div');
@@ -28,7 +26,7 @@ function displayRecipe(data) {
         var image = document.createElement('img');
         image.src = data.hits[j].recipe.image;
         var span = document.createElement('span');
-        span.classList.add( 'black-text', "card-title");
+        span.classList.add('black-text', "card-title");
         span.textContent = data.hits[j].recipe.label;
         var cardContent = document.createElement('div');
         cardContent.classList.add('card-content');
@@ -36,13 +34,9 @@ function displayRecipe(data) {
         var paragraph = document.createElement('p');
         paragraph.textContent = `Calories: ${Math.round(data.hits[j].recipe.calories)}`;
         cardContent.append(paragraph);
-
-
-
         var cardAction = document.createElement('div');
         cardAction.classList.add('card-action');
         var anchor = document.createElement('a');
-        //COME BACK HERE
         anchor.href = data.hits[j].recipe.shareAs;
         document.querySelector('.card-container').append(row);
         row.append(col);
@@ -53,17 +47,18 @@ function displayRecipe(data) {
         anchor.textContent = "Click Me for Recipe";
         anchor.target = "_blank";
     }
-
 }
 
-function handleSearch(){
+function handleSearch(e) {
+    e.preventDefault();
+    console.log(e)
     let searchTerm = searchRecipeInput.value;
-    if (!searchTerm){
+    if (!searchTerm) {
         return;
     }
     recipeSearch(searchTerm);
+    wineSearch(searchTerm);
 }
-
 
 function recipeSearch(searchTerm) {
     fetch(`https://api.edamam.com/api/recipes/v2?q=${searchTerm}&app_id=${apiID}&app_key=${apiKey}&type=public`)
@@ -73,17 +68,10 @@ function recipeSearch(searchTerm) {
             console.log(data);
             displayRecipe(data);
             history(searchTerm);
-
         }).catch(error => {
             console.log(error);
         })
-}
-
-searchRecipeBtn.addEventListener("click", handleSearch);
-
-
-
-//Wine pairing API
+}//Wine pairing API
 var api2URL = 'https://spoonacular.com/food-api/docs#Wine-Pairing'
 var api2Key = '79dd044172b342eab0fc7efd361ced06'
 var searchWineInput = document.getElementById("food-input");
@@ -91,8 +79,8 @@ var searchWineBtn = document.getElementById("wine-button");
 var wineList = document.getElementById("wine-ul");
 
 //function that searches for a wine type
-function wineSearch() {
-    fetch("https://api.spoonacular.com/food/wine/pairing?food=" + searchWineInput.value + "&apiKey=79dd044172b342eab0fc7efd361ced06")
+function wineSearch(searchTerm) {
+    fetch("https://api.spoonacular.com/food/wine/pairing?food=" + searchTerm + "&apiKey=79dd044172b342eab0fc7efd361ced06")
         .then(response => {
             console.log("RESPONSE: ", response);
             return response.json();
@@ -103,8 +91,7 @@ function wineSearch() {
                 var errorEl = document.createElement("p");
                 errorEl.textContent = data.message;
                 wineList.appendChild(errorEl);
-            } 
-            else {
+            } else {
                 //loops over the wine types that would go well with the searched food
                 for (let i = 0; i < data.pairedWines.length; i++) {
                     var liEl = document.createElement("li");
@@ -115,45 +102,35 @@ function wineSearch() {
                 //gives a description about the wine
                 var descriptionEl = document.createElement("p");
                 descriptionEl.textContent = data.pairingText;
-                liEl.appendChild(descriptionEl);
+                wineList.appendChild(descriptionEl);
             }
-
-
-
         })
         .catch(error => {
             console.log(error);
         });
 }
 
-
-//button that listens for a search
-searchWineBtn.addEventListener("click", wineSearch);
-
-
-//for recent search history 
+//array to store recent search history 
 var pastMeals = [];
 
-function history(searchTerm){
-    if(pastMeals.indexOf(searchTerm) !== -1){
+//three functions to collect, store, and output past search history for user to gather again
+function history(searchTerm) {
+    if (pastMeals.indexOf(searchTerm) !== -1) {
         return;
     }
     pastMeals.unshift(searchTerm);
     localStorage.setItem("historyArr", JSON.stringify(pastMeals));
     renderHistory();
-
 }
 
-function initHistory(){
+function initHistory() {
     pastMeals = JSON.parse(localStorage.getItem("historyArr")) || [];
     renderHistory();
 }
 
-
-function renderHistory(){
-    
+function renderHistory() {
     historyEl.innerHTML = "";
-    for(let i = 0; i < pastMeals.length; i++){
+    for (let i = 0; i < pastMeals.length; i++) {
         const historyBtn = document.createElement("button");
         historyBtn.classList.add("history-btn");
         historyBtn.textContent = pastMeals[i];
@@ -161,12 +138,21 @@ function renderHistory(){
     }
 }
 
-function handleHistory(e){
-    if (!e.target.matches(".history-btn")){
+function handleHistory(e) {
+    if (!e.target.matches(".history-btn")) {
         return;
     }
     recipeSearch(e.target.textContent);
 }
 
+//calls the initial his
 initHistory();
-historyEl.addEventListener("click", handleHistory)
+//calls the initial history from the funciton
+searchRecipeBtn.addEventListener("click", handleSearch);
+
+document.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        handleSearch(e);
+    }
+})
+
