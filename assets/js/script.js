@@ -18,24 +18,24 @@ function displayRecipe(data) {
     }
     for (var j = 0; j < length; j++) {
         var row = document.createElement('div');
-        row.classList.add('row')
+        
         var col = document.createElement('div');
-        col.classList.add('col', 's12', 'm7')
+        
         var card = document.createElement('div');
-        card.classList.add('card', 'small');
+        card.classList.add('card', 'medium');
         var cardImage = document.createElement('div');
         cardImage.classList.add('card-image');
         var image = document.createElement('img');
         image.src = data.hits[j].recipe.image;
         var span = document.createElement('span');
-        span.classList.add('card-title', 'black-text');
+        span.classList.add( 'black-text', "card-title");
         span.textContent = data.hits[j].recipe.label;
         var cardContent = document.createElement('div');
         cardContent.classList.add('card-content');
         cardContent.textContent = `Cuisine type: ${data.hits[j].recipe.cuisineType[0]}`;
         var paragraph = document.createElement('p');
-        cardContent.append(paragraph);
         paragraph.textContent = `Calories: ${Math.round(data.hits[j].recipe.calories)}`;
+        cardContent.append(paragraph);
 
 
 
@@ -47,8 +47,8 @@ function displayRecipe(data) {
         document.querySelector('.card-container').append(row);
         row.append(col);
         col.append(card);
-        card.append(cardImage, cardContent, cardAction);
-        cardImage.append(image, span);
+        card.append(cardImage, span, cardContent, cardAction);
+        cardImage.append(image);
         cardAction.append(anchor)
         anchor.textContent = "Click Me for Recipe";
         anchor.target = "_blank";
