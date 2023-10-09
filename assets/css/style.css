@@ -1,3 +1,27 @@
+*{
+  box-sizing: border-box;
+  padding: 0%;
+  margin: 0%;
+}
+
+header{ 
+  display: flex;
+  flex-wrap: wrap;
+}
+
+nav{
+  display: inline-block;
+  background-color: #58181F;
+  height: 100px;
+}
+
+a{
+    color: white;
+    margin-left: 1%;
+    margin-top: 1%;
+    font-family: cursive;
+}
+
 .material-icons:hover {
   cursor: pointer;
 }
@@ -14,45 +38,116 @@
 
 .card-container {
   display: grid;
-  justify-content: center;
+  justify-content: right;
   grid-template-columns: auto auto;
   grid-gap: 25px;
 }
 
 .card {
-  /* flex: 1 0 25%;  */
-  /* box-sizing: border-box;  */
-  /* height: 150px;  */
   height: 100%;
   width: 30vw;
   object-fit: cover;
-
-
 }
 
 .card-content {
   height: 500px !important;
 }
 
+.winelist h2{
+  text-decoration: underline;
+  font-size: 45px;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating){
+  color:#58181F;
+  font-weight: bold;
+  font-family: cursive;
+  text-align: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.card .card-title {
+  text-align: right;
+  justify-content: right;
+  font-weight: bold;
+  margin-left: 5%;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover{
+  color:#185851;
+}
+
+nav .brand-logo{
+  font-size: 50px;
+  margin-top: 10px;
+}
 
 .winelist {
-  width: 95%;
-  height: auto;
-  border: 5px solid rgb(137, 136, 136);
-  margin-left: 40px;
-  border-radius: 15px;
-  padding: 10px;
-  box-shadow: 5px 0 9px 0;
+    display: inline-block;
+    margin-right: 50px;
+    padding: 20px;
+    clear: both;
+    justify-content: left;
+    margin-top: 100px;
+    width: 30%;
+    height: auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #185851;
+    border: 5px solid #034c44;
+}
+
+.winelist ul li{
+  list-style-type: circle;
+  float: none;
+  font-size: 150%;
+  margin-left: 5%;
 }
 
 .winelist p {
+  padding-top: 10px;
   font-weight: bold;
   white-space: pre-line;
+  
 }
 
 .winelist p:nth-of-type(1),
 .winelist p:nth-of-type(2) {
   font-weight: bold;
+}
+
+.temp{
+  text-align: right;
+  padding: 50px;
+
+}
+
+
+h3{
+  margin-top: 200px;
+  padding-top: 10px;
+  font-family: cursive;
+  text-align: center;
+  background-color: #58181F;
+  height: 75px;
+  color: white;}
+
+footer{
+  display: flexbox;
+  background-color: #58181F;
+  margin-top: 50%;
+  width: 100%;
+  height: 50px;
+  color:white;
+  text-align: center;
+}
+
+.history-btn{
+  background-color: #185851;
+  color: white;
+  padding:10px;
+  font-family: 'Courier New', Courier, monospace;
+  margin: 5px;
 }
 
 @media screen and (max-width: 925px) {
