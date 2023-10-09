@@ -126,6 +126,13 @@ function history(searchTerm) {
 function initHistory() {
     pastMeals = JSON.parse(localStorage.getItem("historyArr")) || [];
     renderHistory();
+
+    historyEl.addEventListener("click", function (e) {
+        if (e.target.matches(".history-btn")) {
+            const searchTerm = e.target.getAttribute("data-search-term");
+            recipeSearch(searchTerm);
+        }
+    });
 }
 
 function renderHistory() {
@@ -134,6 +141,7 @@ function renderHistory() {
         const historyBtn = document.createElement("button");
         historyBtn.classList.add("history-btn");
         historyBtn.textContent = pastMeals[i];
+        historyBtn.setAttribute("data-search-term", pastMeals[i]);
         historyEl.append(historyBtn);
     }
 }
