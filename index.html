@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wine and Dine!</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
         integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- <link rel="stylesheet" href="./assets/css/reset.css"> -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
@@ -23,9 +23,16 @@
                         <div class="input-field search-bar">
                             <label id="recipe-button" class="label-icon" for="search"><i
                                     class="material-icons">search</i></label>
-                            <input id="recipe-input" type="search" placeholder="Search for a recipe here" required>
+                            <input id="recipe-input" type="search" placeholder="Search a recipe here" required>
                         </div>
                     </form>
+                    <aside class="container">
+                        <div class="winelist">
+                            <h2>Wine List</h2>
+                            <ul id="wine-ul">
+                            </ul>
+                        </div>
+                    </aside>
                 </div>
             </nav>
         </header>
@@ -34,18 +41,15 @@
             <div>
                 <section>
                     <div class="card-container"></div>
+                    <div class="temp">
+                    </div>
                 </section>
             </div>
         </main>
+      
     </div>
 
-    <aside class="container">
-        <div class="winelist">
-            <h2>Wine List</h2>
-            <ul id="wine-ul">
-            </ul>
-        </div>
-    </aside>
+    
 
     <aside>
         <h3>Recently Dined:</h3>
