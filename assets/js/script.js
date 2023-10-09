@@ -131,6 +131,7 @@ function initHistory() {
         if (e.target.matches(".history-btn")) {
             const searchTerm = e.target.getAttribute("data-search-term");
             recipeSearch(searchTerm);
+            wineSearch(searchTerm);
         }
     });
 }
