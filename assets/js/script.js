@@ -154,6 +154,7 @@ function handleHistory(e) {
 
 //calls the initial his
 initHistory();
+
 //calls the initial history from the funciton
 searchRecipeBtn.addEventListener("click", handleSearch);
 

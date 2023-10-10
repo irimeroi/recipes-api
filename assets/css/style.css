@@ -2,6 +2,7 @@
   --wine: #58181F;
   --green: #185851;
 }
+
 * {
   box-sizing: border-box;
   padding: 0%;
@@ -98,9 +99,9 @@ nav .brand-logo{
     width: 30%;
     height: auto;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: var(--wine);
-    background-color: white;
-    border: 5px solid var(--wine);
+    color: white;
+    background-color: var(--green);
+    border: 5px solid var(--green);
 }
 
 .winelist ul li{
@@ -134,7 +135,7 @@ nav .brand-logo{
   text-align: center;
   justify-content: end;
   font-size: 30px;
-  color: var(--green);
+  color: var(--wine);
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
