@@ -51,7 +51,6 @@ function displayRecipe(data) {
 
 function handleSearch(e) {
     e.preventDefault();
-    console.log(e)
     let searchTerm = searchRecipeInput.value;
     if (!searchTerm) {
         return;
@@ -65,13 +64,14 @@ function recipeSearch(searchTerm) {
         .then(response => {
             return response.json();
         }).then(data => {
-            console.log(data);
             displayRecipe(data);
             history(searchTerm);
         }).catch(error => {
             console.log(error);
         })
-}//Wine pairing API
+}
+
+//Wine pairing API
 var api2URL = 'https://spoonacular.com/food-api/docs#Wine-Pairing'
 var api2Key = '79dd044172b342eab0fc7efd361ced06'
 var searchWineInput = document.getElementById("food-input");
@@ -82,10 +82,8 @@ var wineList = document.getElementById("wine-ul");
 function wineSearch(searchTerm) {
     fetch("https://api.spoonacular.com/food/wine/pairing?food=" + searchTerm + "&apiKey=79dd044172b342eab0fc7efd361ced06")
         .then(response => {
-            console.log("RESPONSE: ", response);
             return response.json();
         }).then(data => {
-            console.log(data)
             wineList.textContent = "";
             if (data.status === "failure") {
                 var errorEl = document.createElement("p");
